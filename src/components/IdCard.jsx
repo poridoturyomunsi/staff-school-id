@@ -71,7 +71,7 @@ export default function IdCard({
       // Dynamic verification link uses the printed card number token
       const token = staff.card_number || staff.staff_number;
 
-      const DEFAULT_VERIFICATION_BASE_URL = import.meta.env.VITE_VERIFICATION_BASE_URL || 'https://my-public-domain.com';
+      const DEFAULT_VERIFICATION_BASE_URL = import.meta.env.VITE_VERIFICATION_BASE_URL || 'https://staff-school-id.vercel.app';
 
       const getBaseUrl = () => {
         // Prefer explicit override from school settings when available

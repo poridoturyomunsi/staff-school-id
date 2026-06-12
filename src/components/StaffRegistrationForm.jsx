@@ -170,7 +170,7 @@ export default function StaffRegistrationForm({ editingStaff = null, onCompleted
 
   const [qrActionMsg, setQrActionMsg] = useState('');
 
-  const DEFAULT_VERIFICATION_BASE_URL = import.meta.env.VITE_VERIFICATION_BASE_URL || 'https://my-public-domain.com';
+  const DEFAULT_VERIFICATION_BASE_URL = import.meta.env.VITE_VERIFICATION_BASE_URL || 'https://staff-school-id.vercel.app';
 
   const getVerifyBaseUrl = () => {
     if (schoolSettings?.verification_base_url) return schoolSettings.verification_base_url.replace(/\/$/, '');
