@@ -177,7 +177,7 @@ export default function StaffRegistrationForm({ editingStaff = null, onCompleted
     return DEFAULT_VERIFICATION_BASE_URL.replace(/\/$/, '');
   };
 
-  const verificationUrl = `${getVerifyBaseUrl()}/verify/${encodeURIComponent(livePreviewStaff.card_number)}`;
+const verificationUrl = `${getVerifyBaseUrl()}?verify=${encodeURIComponent(token)}`;  
 
   const handleCopyVerifyUrl = async () => {
     try {
