@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-900 text-slate-100 min-h-screen font-sans;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(15, 23, 42, 0.9) 0, transparent 50%),
+      radial-gradient(at 50% 0%, rgba(30, 41, 59, 0.4) 0, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(14, 116, 144, 0.15) 0, transparent 50%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700 rounded hover:bg-slate-600;
+  }
+}
+
+/* Card Designer Grids & Watermark Pattern animations if any */
+.security-bg-grid {
+  background-size: 10px 10px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Print CSS */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-page {
+    display: block !important;
+    page-break-before: always;
+    page-break-after: always;
+    page-break-inside: avoid;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 85.6mm !important;
+    height: 53.98mm !important;
+  }
+
+  .print-card-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Force exact card size in print */
+  .pvc-card-print {
+    width: 85.6mm !important;
+    height: 53.98mm !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important; /* CR80 printers cut the corners, but keeping layout border-radius clean */
+    page-break-inside: avoid !important;
+    page-break-after: always !important;
+    display: inline-block !important;
+    position: relative !important;
+    overflow: hidden !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    image-rendering: optimizeQuality !important;
+    transform: translateZ(0);
+  }
+  
+  @page {
+    size: 85.6mm 53.98mm;
+    margin: 0;
+  }
+}
+
+/* Draggable & active styles */
+.draggable-element {
+  cursor: move;
+  user-select: none;
+}
+
+.draggable-element:hover {
+  outline: 1px dashed rgba(14, 165, 233, 0.6);
+  outline-offset: 2px;
+}
+
+.draggable-element.selected {
+  outline: 2px solid rgba(14, 165, 233, 0.9);
+  outline-offset: 2px;
+}
